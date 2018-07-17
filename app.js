@@ -15,18 +15,20 @@ var cat3 = {
   numberOfPets: 5
 }
 
-var cats = []
-cats.push(cat1)
-cats.push(cat2)
-cats.push(cat3)
-console.log(cats)
+var cats = [];
+cats.push(cat1);
+cats.push(cat2);
+cats.push(cat3);
 
 
 function petCat(index){
-  var cat = cats[index]
-  cat.numberOfPets++
-  console.log(cat.numberOfPets)
-  update(cat, index)
+  var cat = cats[index];
+  cat.numberOfPets++;
+  console.log(cat.numberOfPets);
+  if(cat.numberOfPets > 5){
+    cat.imageUrl = 'https://i.kym-cdn.com/entries/icons/original/000/016/546/hidethepainharold.jpg'
+  }
+  update(cat, index);
 }
 
 function setup(){
@@ -38,7 +40,7 @@ function setup(){
     template += `
     <div class="col-6">
       <h1>${cat.name}</h1>
-      <img src="${cat.imageUrl}" alt="">
+      <img id="${i + 'image'}" src="${cat.imageUrl}" alt="">
       <h3>Number of pets:</h3>
       <p id="${i + 'pets'}">${cat.numberOfPets}</p>
       <button class="btn btn-primary" onclick="petCat(${i})">Pet</button>
@@ -49,9 +51,15 @@ function setup(){
 catsElem.innerHTML = template
 }
 
+function angryCat(index){
+  var cat = cats[index]
+  if (cat.numberOfPets > 30){
+  }
+}
 
 function update (cat, index){
-  document.getElementById(`${index + 'pets'}`).innerText = cat.numberOfPets
+  document.getElementById(`${index + 'pets'}`).innerText = cat.numberOfPets;
+  document.getElementById(`${index + 'image'}`).src = cat.imageUrl;
 }
 
 setup()
