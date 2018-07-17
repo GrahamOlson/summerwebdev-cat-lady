@@ -9,10 +9,16 @@ var cat2 = {
   imageUrl: "https://pbs.twimg.com/profile_images/948294484596375552/RyGNqDEM_400x400.jpg",
   numberOfPets: 11000
 }
+var cat3 = {
+  name: "Fred",
+  imageUrl: "https://r.hswstatic.com/w_907/gif/tesla-cat.jpg",
+  numberOfPets: 5
+}
 
 var cats = []
 cats.push(cat1)
 cats.push(cat2)
+cats.push(cat3)
 console.log(cats)
 
 
@@ -42,6 +48,7 @@ function setup(){
 
 catsElem.innerHTML = template
 }
+
 
 function update (cat, index){
   document.getElementById(`${index + 'pets'}`).innerText = cat.numberOfPets
